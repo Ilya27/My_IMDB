@@ -16,9 +16,9 @@ class ProgressRing extends React.Component {
     this.circumference = this.normalizedRadius * 2 * Math.PI;
   }
   check(value){
-      if(value<40){
+      if(value<=40){
         return "red"
-      }else if (value<70){
+      }else if (value<=70){
         return "khaki"
       }else{
         return "green"
@@ -45,6 +45,7 @@ class ProgressRing extends React.Component {
           r={ this.normalizedRadius }
           cx={ radius }
           cy={ radius }
+          className='circle'
          />
       </svg>
     );
@@ -62,9 +63,7 @@ class Example extends React.Component {
   
   componentDidMount() {
   const {progress}=this.props;
-  let  percent = progress*10;
-  console.log(percent);
-  
+  let  percent = progress*10;  
   this.setState({progress:percent})
   }
   
@@ -98,6 +97,16 @@ class Page extends Component{
       fetchContent(type,state,pageNumber);
       history.push(`/${type}/${state}?page-${pageNumber}`);
     }
+
+    cut(value){
+      var size = 215;
+      console.log( value.length );
+      
+      if(value.length > size){
+      return value.slice(0, size) + ' ...';}else{
+        return value
+      }
+    }
     render() {
         let index=0;
         const {movies}=this.props;
@@ -112,10 +121,12 @@ class Page extends Component{
               <Link to={`/movie/${item.id}`}><img src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2${item.poster_path}`} alt='movie_picture'/></Link>
               <div className='info_popular'>
                 <h2>{item.title}</h2>
-                <Example progress={item.vote_average}/>
-                <p>{item.vote_average}</p>
-                <p>{item.release_date}</p>
-                <p>{item.overview}</p>
+                <p>{item.release_date}</p> 
+                <p>{this.cut(item.overview)}</p>
+                <div className='container_circle'>
+                  <Example progress={item.vote_average}/>
+                  <p className='vote_average'>{item.vote_average}</p>
+                </div>
               </div>
             </div>))
           }
