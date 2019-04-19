@@ -1,0 +1,45 @@
+.footer{
+    color: white;
+    width: 100%;
+    background-image: url(/assets/2/v4/footers_v2/2001ASpaceOdyssey-5454eab….jpg), radial-gradient(at 30% top, rgba(7, 64, 52, 1) 0%, rgba(8, 28, 36, 1) 70%);
+    display: flex;
+    justify-content: center;
+}
+
+
+li{
+    list-style-type: none;
+}
+
+ul{
+    padding: 0;
+}
+
+.footer .logo img {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    height: 116px;
+    width: 130px;
+}
+
+.footer  p{
+    margin: 0;
+    margin-top: 5px;
+}
+
+.footer  h3{
+    text-transform: uppercase;
+    margin: 0;
+    margin-top: 25px;
+}
+
+a{
+    font-weight: 400;
+    text-decoration:none;
+    color: white;
+    font-size: 1em;
+}
+
+.contacts{
+    margin-left: 15px;
+}

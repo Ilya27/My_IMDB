@@ -1,0 +1,26 @@
+.movies_popular{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+.movie_popular{
+    width: 50%;
+    display: flex;
+    position: relative;
+}
+
+.info_popular{
+    width: 50%;
+}
+
+
+  
+  circle {
+    background-color: #2962FF;
+    transition: stroke-dashoffset 0.35s;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+  }

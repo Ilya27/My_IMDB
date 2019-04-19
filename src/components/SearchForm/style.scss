@@ -1,0 +1,28 @@
+.searchForm{
+    border-bottom: 1px solid #dedede;
+}
+
+input{
+    width: 53%;
+    border:none;
+    outline:none;
+    min-height: 45px;
+    font-style: italic;
+    font-size: 20px;
+    font-weight: 400;
+    color: #acacac;
+}
+
+input::placeholder{
+    font-style: italic;
+    font-size: 20px;
+    font-weight: 400;
+    color: #acacac;
+}
+
+input:hover input::placeholder{
+    color: black;
+}
+input:active{
+    color: black;
+}
