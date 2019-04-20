@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
   
   class Menu extends Component {
     createMenu(name,...params){
+      let index=0;
       return(
-          <li className='menu_link'>
+          <li  className='menu_link'>
             <Link to={`/${name.toLowerCase()}/${params[0].toLowerCase()}`}>{name}</Link>
               <ul className={`menu_submenu ${name.toLowerCase()}`}>
                 {params.map(item=>(
-                  <li><Link to={`/${name.toLowerCase()}/${item.toLowerCase()}`}>{item}</Link></li>
+                  <li key={index++}><Link  to={`/${name.toLowerCase()}/${item.toLowerCase()}`}>{item}</Link></li>
                 ))}
             </ul>
           </li>

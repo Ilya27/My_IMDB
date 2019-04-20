@@ -10,7 +10,7 @@ class NowPlayingMovies extends Component {
       <h2>In Theaters</h2>
         {
         nowPlayingMovies.map(item => (
-        <Link to={`/movie/${item.id}`}>
+        <Link key={item.id} to={`/movie/${item.id}`}>
           <div className={`movie movie_${index++}`} key={item.id}>
             <img src={`https://image.tmdb.org/t/p/w500_and_h282_face${item.backdrop_path}`} alt='movie_picture'/>
             <div className='info'>

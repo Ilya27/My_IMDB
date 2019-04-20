@@ -10,7 +10,7 @@ class NowPlayingShows extends Component {
       <h2>On TV</h2>
         {
         nowPlayingShows.map(item => (
-          <Link to={`/show/${item.id}`}>
+          <Link key={item.id} to={`/show/${item.id}`}>
           <div className={`show show_${index}`} key={item.id}>
             <img src={`https://image.tmdb.org/t/p/w500_and_h282_face${item.backdrop_path}`} alt='shows_picture'/>
             <div className='info'>

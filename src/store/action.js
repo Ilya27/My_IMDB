@@ -15,15 +15,28 @@ export const NextEpisodeToAir = nextEpisodeToAir => ({
     payload: {nextEpisodeToAir},
 });
 
-export const getContent = content => ({
-    type: ACTION_TYPES.GET_CONTENT,
-    payload: {content},
+export const getMovies = movies => ({
+    type: ACTION_TYPES.GET_MOVIES,
+    payload: {movies},
 });
+
+export const getShows = shows => ({
+    type: ACTION_TYPES.GET_SHOWS,
+    payload: {shows},
+});
+
+export const getPersons = persons => ({
+    type: ACTION_TYPES.GET_PERSONS,
+    payload: {persons},
+});
+
 
 export const getSearchInfo = search_info => ({
     type: ACTION_TYPES.SEARCH_INFO,
     payload: {search_info},
 })
+
+
 
 
 export const fetchNowPlayingMovies = () => dispatch => {
@@ -57,10 +70,22 @@ export const fetchNowPlayingTVShows =  () => dispatch => {
 })
 };
 
-export const fetchContent =  (type,state,activePage) => dispatch => {
+export const fetchMovies =  (type,state,activePage) => dispatch => {
     fetch(`https://api.themoviedb.org/3/${type}/${state}?api_key=dcf025b227cc290e6845162a216870ff&language=en-US&page=${activePage}`)
     .then(data=>data.json())
-    .then(data=>dispatch(getContent(data.results)))
+    .then(data=>dispatch(getMovies(data.results)))
+}
+
+export const fetchShows =  (type,state,activePage) => dispatch => {
+    fetch(`https://api.themoviedb.org/3/${type}/${state}?api_key=dcf025b227cc290e6845162a216870ff&language=en-US&page=${activePage}`)
+    .then(data=>data.json())
+    .then(data=>dispatch(getShows(data.results)))
+}
+
+export const fetchPersons =  (type,state,activePage) => dispatch => {
+    fetch(`https://api.themoviedb.org/3/${type}/${state}?api_key=dcf025b227cc290e6845162a216870ff&language=en-US&page=${activePage}`)
+    .then(data=>data.json())
+    .then(data=>dispatch(getPersons(data.results)))
 }
 
 export const searchInfo = (value) => dispatch => {

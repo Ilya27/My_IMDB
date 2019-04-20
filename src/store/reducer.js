@@ -4,7 +4,9 @@ const initialState = {
     nowPlayingMovies:[],
     nowPlayingShows:[],
     toAir:[],
-    content:[],
+    movies:[],
+    shows:[],
+    persons:[],
     search_info:[],
 };
 function reducer(state = initialState, action) {
@@ -30,10 +32,22 @@ function reducer(state = initialState, action) {
                 toAir: action.payload.nextEpisodeToAir.slice(0,3),
         };
 
-        case  ACTION_TYPES.GET_CONTENT:
+        case  ACTION_TYPES.GET_MOVIES:
             return{
             ...state,
-            content: action.payload.content
+            movies: action.payload.movies
+        }
+
+        case  ACTION_TYPES.GET_SHOWS:
+            return{
+            ...state,
+            shows: action.payload.shows
+        }
+
+        case  ACTION_TYPES.GET_PERSONS:
+            return{
+            ...state,
+            persons: action.payload.persons
         }
 
         case  ACTION_TYPES.SEARCH_INFO:
