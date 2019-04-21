@@ -1,6 +1,4 @@
-.info_about_movie{
-
-
+.info_about_show{
 .main_info{
     display: flex;
     text-align: left;
@@ -123,8 +121,8 @@
     margin-left: 23%;
 }
 .cast{
+
     flex-direction: column;
-    margin-bottom: 25px;
     & p{
         text-align: left;
         margin: 0;
@@ -145,6 +143,7 @@
 
     & .actor{
         display: flex;
+        
     }
 
     & h2{

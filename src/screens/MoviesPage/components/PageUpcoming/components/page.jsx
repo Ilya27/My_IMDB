@@ -32,7 +32,6 @@ class Page extends Component{
     render() {
         let index=0;
         const {movies}=this.props;
-        console.log(movies);
         
         return(
         <div>

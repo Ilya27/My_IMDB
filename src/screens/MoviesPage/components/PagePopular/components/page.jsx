@@ -22,8 +22,6 @@ class Page extends Component{
 
     cut(value){
       var size = 215;
-      console.log( value.length );
-      
       if(value.length > size){
       return value.slice(0, size) + ' ...';}else{
         return value
@@ -33,8 +31,7 @@ class Page extends Component{
     render() {
         let index=0;
         const {movies}=this.props;
-        console.log(movies);
-        
+           
         return(
         <div>
           <div className='movies_popular'>
