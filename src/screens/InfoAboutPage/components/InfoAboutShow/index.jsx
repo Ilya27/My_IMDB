@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import moment from'moment' ;
-import './style.scss'
+import person_placeholder from '../../../../assets/img/person_placeholder.png';
+import placeholder from '../../../../assets/img/placeholder.jpg';
+import './style.scss';
 class InfoAboutShow extends Component {
     state={
         info:[],
@@ -21,6 +23,30 @@ class InfoAboutShow extends Component {
             cast:data.cast.splice(0,5)})
         })
     })}
+
+    checkPic(link){
+        let style={
+            width:"300px",
+            height:"450px"
+        }
+        if(link){
+            return <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${link}`} alt ='Poster'></img>
+        }else{
+            return <img src={placeholder} alt = 'Poster' style={style}></img>
+        }
+    }
+
+    checkCastPic(link){
+        let style={
+            width:"138px",
+            height:"175px"
+        }
+        if(link){
+            return <img src={`https://image.tmdb.org/t/p/w138_and_h175_face${link}`} alt='cast-pic'></img>
+        }else{
+            return <img src={person_placeholder} alt = 'cast-pic' style={style}></img>
+        }
+    }
 
     fullDateToYear(fullYear){
         if(fullYear){
@@ -52,7 +78,7 @@ class InfoAboutShow extends Component {
             (print.push(
             <div className='cast__info'>
                 <Link to={`/person/${item.id}`}> 
-                    <img src={`https://image.tmdb.org/t/p/w138_and_h175_face${item.profile_path}`} alt='cast-pic'></img>
+                    {this.checkCastPic(item.profile_path)}
                     <p>{item.name}</p> 
                 </Link>
                 <p>{item.character}</p>
@@ -62,9 +88,11 @@ class InfoAboutShow extends Component {
     }
 
     normalDate(date){
-        var format='LL';
-        var result= moment(date).format(format) 
-        return <p>Next episode :<br></br>{' '+result}</p>
+        if(date){
+            var format='LL';
+            var result= moment(date.air_date).format(format) 
+            return <p>Next episode :<br></br>{' '+result}</p>
+        }
     }
     normalTime(time){
         var hour = time / 60 ^ 0;
@@ -101,44 +129,40 @@ class InfoAboutShow extends Component {
     return (
         <div className='info_about_show' >
             <div className='main_info'>
-                <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${info.poster_path}`} alt ='Poster'></img>
-                    <div className='main_info__text'>
-                        <h1>{info.name}<p className='date'>({this.fullDateToYear(info.first_air_date)})</p></h1>
-                            {/* // <div className='container_circle'>
-                            //     {this.checkValue(value.vote_average)}
-                            //     <b>User Score</b>
-                            // </div> */}
-                        <h2>Overview</h2>
-                        <p>{info.overview}</p>
-                        <h2>Featured Crew</h2>
-                        <div className='crew'>
-                            {this.printCrew(crew,info.created_by)}
-                        </div>
-                    </div>
-                </div>
-                <div className='additional_info'>
-                    <div className='cast'>
-                        <div className='Top Billed Cast'>
-                            <h2>Series Cast</h2>
-                        </div>
-                        <div className='actor'>
-                            {this.printCast(cast)}
-                        </div>
-                    </div>
-                    <div className='facts'>
-                        <h4>Status</h4>
-                        <p>{info.status}</p>
-                        <h4>Release Information</h4>
-                        {this.normalDate(info.release_date)}
-                        <h4>Network</h4>
-                        <p>{this.logo(info.networks)}</p>
-                        <h4>Type</h4>
-                        <p>{info.type}</p>
-                        <h4>Runtime</h4>
-                        {this.normalTime(info.episode_run_time)}
+                {this.checkPic(info.poster_path)}
+                <div className='main_info__text'>
+                    <h1>{info.name}<p className='date'>({this.fullDateToYear(info.first_air_date)})</p></h1>
+                    <h2>Overview</h2>
+                    <p>{info.overview}</p>
+                    <h2>Featured Crew</h2>
+                    <div className='crew'>
+                        {this.printCrew(crew,info.created_by)}
                     </div>
                 </div>
             </div>
+            <div className='additional_info'>
+                <div className='cast'>
+                    <div className='Top Billed Cast'>
+                        <h2>Series Cast</h2>
+                    </div>
+                    <div className='actor'>
+                        {this.printCast(cast)}
+                    </div>
+                </div>
+                <div className='facts'>
+                    <h4>Status</h4>
+                    <p>{info.status}</p>
+                    <h4>Release Information</h4>
+                    {this.normalDate(info.next_episode_to_air)}
+                    <h4>Network</h4>
+                    <p>{this.logo(info.networks)}</p>
+                    <h4>Type</h4>
+                    <p>{info.type}</p>
+                    <h4>Runtime</h4>
+                    {this.normalTime(info.episode_run_time)}
+                </div>
+            </div>
+        </div>
         );
     }
 }

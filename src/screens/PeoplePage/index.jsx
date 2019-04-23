@@ -9,7 +9,7 @@ class PeoplePage extends Component{
         return(
             <div>
                 <Switch>
-                    <Route path={`${root}/popular`} exact component={WrraperPagePopular}/>
+                    <Route path={`${root}/popular/&page=:number`} exact component={WrraperPagePopular}/>
                     <Route path={`${root}/:id`} exact component={ InfoAbout }/>
                 </Switch>
             </div>

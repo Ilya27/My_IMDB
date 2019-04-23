@@ -1,0 +1,112 @@
+.search_page{
+    display: flex;
+    .search_page__select_block{
+        min-width: 260px;
+        margin-left: 23%;
+        padding-right:55px;
+        margin-top: 35px;
+        margin-bottom: 35px;
+        & .link{
+            width: 100%;
+            border-bottom: 2px solid #000;
+        }
+        & .link:first-child{
+            border-top:2px solid #000;
+        }
+        & a{
+            display: block;
+            padding: 12px 0 12px 0;
+            box-sizing: border-box;
+            font-weight: 600;
+            color:black;
+            text-shadow: 0px 0px 0 #000;
+        }
+
+        & .link:hover{
+            border-bottom: 2px solid #00d573;
+        }
+    }
+    .search_page__search_info{
+        margin-top: 15px;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 25px;
+        & .search_info__block{
+            height: 278px;
+            margin-right: 25%;
+            display: flex;
+            border-width: 1px;
+            border-style: solid;
+            border-color: rgb(227, 227, 227);
+            text-align: left;
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        & .container_circle{
+            position: absolute;
+            top:2%;
+            & p{
+                position: absolute;
+                top:0;
+                left: 35%;
+                font-weight: normal;
+                font-size: 1.4em;
+                line-height: 1.1em;
+            }
+        }
+
+        & .circle {
+            transition: stroke-dashoffset 0.35s;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+            display: inline-block;
+        }
+
+        & .search_info__text{
+            margin-left: 15px;
+            margin-right: 15px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+        & h3{
+            display: inline-block;
+            margin-top: 0;
+            margin-left: 85px;
+            color:black;
+            text-shadow: 0px 0px 0 #000;
+            font-weight: normal;
+            font-size: 1.1em;
+            line-height: 1.1em;
+            margin-bottom: 0;
+        }
+
+        & .release_date{
+            display: inline;
+            margin-left: 85px;
+        }
+
+        & .overview{
+            margin-top: 45px;
+        }
+
+        & .NR{
+            margin-top: 10px;
+            margin-left: 22px;
+        }
+        & .search_info__logo {
+            & img{
+                width: 185px;
+                height: 278px;
+            }
+        }
+
+        & h2{
+            text-align: left;
+        }
+
+        & b{
+            color: rgb(153, 153, 153);
+        }
+    }
+}

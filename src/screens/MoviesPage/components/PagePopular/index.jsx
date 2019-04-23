@@ -20,6 +20,8 @@ class WrraperPagePopular extends Component{
   render(){
     let type=this.props.match.url.toLowerCase().split('/')[1]
     let state=this.props.match.url.toLowerCase().split('/')[2];
+    console.log(state);
+    
     return(
       <Provider store = {store} >
         <PagePopular type={type} state={state}/>

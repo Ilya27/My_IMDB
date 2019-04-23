@@ -10,14 +10,13 @@ class Page extends Component{
     componentDidMount(){
       const {fetchMovies,type,state}=this.props;
       fetchMovies(type,state,1);
-      history.push(`/${type}/${state}?page-1`);
     }
 
     handlePageChange= pageNumber=>{
       const {fetchMovies,type,state}=this.props;
       this.setState({activePage: pageNumber});
       fetchMovies(type,state,pageNumber);
-      history.push(`/${type}/${state}?page-${pageNumber}`);
+      history.push(`/${type}/${state}/&page=${pageNumber}`);
     }
 
     cut(value){

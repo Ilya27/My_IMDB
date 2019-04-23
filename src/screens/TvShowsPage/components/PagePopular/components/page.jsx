@@ -13,7 +13,6 @@ class Page extends Component{
         type="tv";
       }
       fetchShows(type,state,1);
-      history.push(`/show/${state}#page-1`);
     }
 
     handlePageChange= pageNumber=>{
@@ -23,7 +22,7 @@ class Page extends Component{
       }
       this.setState({activePage: pageNumber});
       fetchShows(type,state,pageNumber);
-      history.push(`/show/${state}#page-${pageNumber}`);
+      history.push(`/show/${state}/&page=${pageNumber}`);
     }
 
     cut(value){

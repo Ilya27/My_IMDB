@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import{OurProgressRing} from '../../../../components/index';
 import {Link} from 'react-router-dom';
+import person_placeholder from '../../../../assets/img/person_placeholder.png';
+import placeholder from '../../../../assets/img/placeholder.jpg';
 import './style.scss';
 import moment from'moment' ;
 class InfoAboutMovie extends Component {
@@ -25,6 +26,30 @@ class InfoAboutMovie extends Component {
             })
         }
 
+        checkPic(link){
+            let style={
+                width:"300px",
+                height:"450px"
+            }
+            if(link){
+                return <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${link}`} alt ='Poster'></img>
+            }else{
+                return <img src={placeholder} alt = 'Poster' style={style}></img>
+            }
+        }
+    
+        checkCastPic(link){
+            let style={
+                width:"138px",
+                height:"175px"
+            }
+            if(link){
+                return <img src={`https://image.tmdb.org/t/p/w138_and_h175_face${link}`} alt='cast-pic'></img>
+            }else{
+                return <img src={person_placeholder} alt = 'cast-pic' style={style}></img>
+            }
+        }
+
     fullDateToYear(fullYear){
         if(fullYear){
             let year = fullYear.split('-');
@@ -33,11 +58,6 @@ class InfoAboutMovie extends Component {
         } 
     }
 
-    checkValue(value){
-        if(value){
-            return <OurProgressRing progress={value}/>
-        }
-    }
 
     printCrew(crew){
         let print=[];
@@ -60,7 +80,7 @@ class InfoAboutMovie extends Component {
             (print.push(
             <div className='cast__info'>
                 <Link to={`/person/${item.id}`}> 
-                    <img src={`https://image.tmdb.org/t/p/w138_and_h175_face${item.profile_path}`} alt='cast-pic'></img>
+                    {this.checkCastPic(item.profile_path)}
                     <p>{item.name}</p> 
                 </Link>
                 <p>{item.character}</p>
@@ -104,7 +124,7 @@ class InfoAboutMovie extends Component {
     return (
         <div className='info_about_movie' >
             <div className='main_info'>
-                <img src={`https://image.tmdb.org/t/p/w300_and_h450_bestv2${info.poster_path}`} alt ='Poster'></img>
+                {this.checkPic(info.poster_path)}
                     <div className='main_info__text'>
                         <h1>{info.title}<p className='date'>({this.fullDateToYear(info.release_date)})</p></h1>
                             {/* // <div className='container_circle'>

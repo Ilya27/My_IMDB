@@ -9,13 +9,16 @@ class ProgressRing extends Component {
       this.circumference = this.normalizedRadius * 2 * Math.PI;
     }
     check(value){
-        if(value<=40){
-          return "red"
-        }else if (value<=70){
-          return "khaki"
-        }else{
-          return "green"
-        }
+      console.log(value);
+      if(value<40){
+        return 'red'
+      }
+      else if(value>=40 && value<70){
+          return 'khaki'
+      }
+      else if (value=>70){
+        return 'green'
+      }
     }
     
     render() {
@@ -58,7 +61,7 @@ class ProgressRing extends Component {
       const {progress}=this.props;
       let  percent = progress*10;  
       const interval = setInterval(() => {
-        this.setState({ progress: percent });}, 200);
+        this.setState({ progress: percent});}, 600);
     }
     
     
@@ -75,18 +78,18 @@ class ProgressRing extends Component {
 
 
   class OurProgressRing extends Component{
-    check(vote_average){
+    checkVote(vote_average){
         if(vote_average===0){
           return <h2 className ='NR'> NR</h2> /*Расположение поровнять*/
         }else{
-          return (<><Example progress={vote_average}/> <p className='vote_average'>{vote_average*10}</p></>)
+          return (<><Example progress={vote_average}/> <p className='vote_average'>{Math.round(vote_average*10)}</p></>)
         }
       }
     render() {
         const {progress}=this.props
         return (
             <>
-                {this.check(progress)}
+              {this.checkVote(progress)}
             </>
         );
       }

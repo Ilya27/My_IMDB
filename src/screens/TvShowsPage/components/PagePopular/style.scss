@@ -54,30 +54,21 @@
         left:12%;
         top: 4%;
     }
+
+    & .circle {
+        transition: stroke-dashoffset 0.35s;
+        transform: rotate(-90deg);
+        transform-origin: 50% 50%;
+    }
+    
+    & .container_circle{
+        position: absolute;
+        right: 0;
+        top:110%;
+    
+    }
+    
 }
 
 
   
-.circle {
-    transition: stroke-dashoffset 0.35s;
-    transform: rotate(-90deg);
-    transform-origin: 50% 50%;
-}
-
-.container_circle{
-    position: absolute;
-    right: 0;
-    top:110%;
-
-}
-
-.pagination{
-    display: flex;
-    justify-content: center;
-}
-
-.pagination li a{
-    margin-left: 5px;
-    text-shadow: 0px 0px 0px;
-    color:black;
-}

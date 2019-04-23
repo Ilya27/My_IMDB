@@ -13,11 +13,10 @@ class SearchForm extends Component {
     if(event.keyCode === 13){
       const value = this.state.value;
       searchInfo(value);
-      const { search_info } = this.props;
-      console.log(search_info);
-      history.push('/search/');
+      history.push('/search/movie');
    }
-  
+
+   this.inputEntry='';
   }
 
   render() {
@@ -30,15 +29,11 @@ class SearchForm extends Component {
 }
 
 
-const mapStateToProps = store => ({
-  search_info: store.search_info,
-});
-
 const mapDispatchToProps = {
   searchInfo,
 };
 
-const ConnectSearchForm = connect(mapStateToProps, mapDispatchToProps)(SearchForm);
+const ConnectSearchForm = connect(null, mapDispatchToProps)(SearchForm);
 
 class  WrapperSearchForm extends Component {
   render() {

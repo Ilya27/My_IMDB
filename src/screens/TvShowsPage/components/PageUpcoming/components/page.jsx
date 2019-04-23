@@ -17,7 +17,6 @@ class Page extends Component{
         state='on_the_air'
       }
       fetchShows(type,state,1);
-      history.push(`/show/on tv#page-1`);
     }
 
     handlePageChange= pageNumber=>{
@@ -30,12 +29,13 @@ class Page extends Component{
       }
       this.setState({activePage: pageNumber});
       fetchShows(type,state,pageNumber);
-      history.push(`/show/on tv?page-${pageNumber}`);
+      history.push(`/show/on tv/&page=${pageNumber}`);
+      console.log(history);
+      
     }
 
     cut(value){
       var size = 215;
-      console.log( value.length );
       if(value.length ===0){
         return 'This show has no overview'
       }else if(value.length > size){

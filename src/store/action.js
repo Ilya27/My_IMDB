@@ -56,17 +56,17 @@ export const fetchNowPlayingTVShows =  () => dispatch => {
     .then(data => {
         dispatch(NowPlayingShows(data))
         
-        data.results.map(item => (fetch(`https://api.themoviedb.org/3/tv/${item.id}?api_key=dcf025b227cc290e6845162a216870ff&language=en-US`)
-        .then(data=>data.json())
-        .then(data=>{
-            arr.push(data.next_episode_to_air.air_date);
-            ++count;
-            if(count===3){
-                dispatch(NextEpisodeToAir(arr))}
-            }
-            )
-        )
-    );
+    //     data.results.map(item => (fetch(`https://api.themoviedb.org/3/tv/${item.id}?api_key=dcf025b227cc290e6845162a216870ff&language=en-US`)
+    //     .then(data=>data.json())
+    //     .then(data=>{
+    //         // arr.push(data.next_episode_to_air.air_date);
+    //         // ++count;
+    //         // if(count===3){
+    //         //     dispatch(NextEpisodeToAir(arr))}
+    //         }
+    //         )
+    //     )
+    // );
 })
 };
 
