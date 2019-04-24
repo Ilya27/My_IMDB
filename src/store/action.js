@@ -91,5 +91,5 @@ export const fetchPersons =  (type,state,activePage) => dispatch => {
 export const searchInfo = (value) => dispatch => {
     fetch(`https://api.themoviedb.org/3/search/multi?api_key=dcf025b227cc290e6845162a216870ff&language=en-US&query=${value}&page=1&include_adult=false`)
     .then(data=>data.json())
-    .then(data=>{console.log(data);dispatch(getSearchInfo(data))}) // into thunk 
+    .then(data=>{dispatch(getSearchInfo(data))})
 }

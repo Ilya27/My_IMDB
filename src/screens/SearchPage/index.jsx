@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Provider, connect } from 'react-redux';
 import {store} from '../../store/store';
 import { Route,Switch,Link} from "react-router-dom";
-import SearchPage from './Page/index'
+import {SearchPageMovie,SearchPageShow} from './components/index';
 import './style.scss';
 
 const mapStateToProps = store => ({
@@ -10,7 +10,8 @@ const mapStateToProps = store => ({
   });
   
   
-const ConnectSearchPage = connect(mapStateToProps,null)(SearchPage);
+const ConnectSearchPageMovie = connect(mapStateToProps,null)(SearchPageMovie);
+const ConnectSearchPageShow = connect(mapStateToProps,null)(SearchPageShow);
 
 class  WrapperSearchPage extends Component {
   render() {
@@ -24,8 +25,8 @@ class  WrapperSearchPage extends Component {
           <div className='link'><Link to={`${root}/show`}>TV Shows</Link></div>
         </div>
         <Switch>
-                <Route path={`${root}/movie`}  exact component={ConnectSearchPage}/>
-                <Route path={`${root}/show`} exact component={ ConnectSearchPage }/>
+                <Route path={`${root}/movie`}  exact component={ConnectSearchPageMovie}/>
+                <Route path={`${root}/show`} exact component={ ConnectSearchPageShow }/>
         </Switch>
       </div>
       </Provider>
