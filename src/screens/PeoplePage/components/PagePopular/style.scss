@@ -20,7 +20,10 @@
     flex-direction: column;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     background-color: #fff;
-    max-width: 235px
+    max-width: 45%;
+    @media screen and (max-width: 1778px) {
+        max-width: 15%; //!!!!!!!
+    }
     
 }
 
@@ -39,6 +42,7 @@
         margin: 0;
         margin-left: 10px;
         margin-bottom: 15px;
+        margin-right: 15px; //!!!!
         margin-top: 15px;
         font-weight: 600;
         font-size: 1.1em;
