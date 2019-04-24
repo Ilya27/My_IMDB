@@ -1,8 +1,20 @@
 .App {
   text-align: center;
 }
+
 body{
   margin: 0;
   font-family: 'Source Sans Pro', Arial, sans-serif; 
   font-size: 1em;
+}
+
+.pagination{
+  display: flex;
+  justify-content: center;
+}
+
+.pagination li a{
+  margin-left: 5px;
+  text-shadow: 0px 0px 0px;
+  color:black;
 }

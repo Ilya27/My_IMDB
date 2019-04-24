@@ -8,13 +8,11 @@ class TvShowsPage extends Component{
         let root = this.props.match.url
         console.log(root);
         return(
-            <div>
-                <Switch>
-                    <Route path={`${root}/popular`}  exact component={WrraperPagePopular}/>
-                    <Route path={`${root}/on TV`} exact component={WrraperPageUpcoming}/>
-                    <Route path={`${root}/:id`} exact component={ InfoAbout }/>
-                </Switch>
-            </div>
+            <Switch>
+                <Route path={`${root}/popular/&page=:id`}  exact component={WrraperPagePopular}/>
+                <Route path={`${root}/on TV/&page=:id`} exact component={WrraperPageUpcoming}/>
+                <Route path={`${root}/:id`} exact component={ InfoAbout }/>
+            </Switch>
         )
     }
 }
